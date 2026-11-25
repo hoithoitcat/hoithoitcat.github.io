@@ -1,27 +1,32 @@
-# Ganghun Lee academic homepage
+# Ganghun Lee — academic personal website
 
-An independently written static academic website inspired by the *layout* of https://juho-lee.github.io/ (November 2026). This does **not** copy its source code or the professor's assets.
+An independently written static academic personal website, visually inspired by the publicly visible design of [Juho Lee's academic website](https://juho-lee.github.io/). The code is independently authored rather than copied from the professor's repository.
 
-## Set up GitHub Pages
-1. Unzip this package.
-2. Open https://github.com/hoithoitcat/hoithoitcat.github.io
-3. Upload `index.html`, `styles.css`, `app.js`, `README.md`, and the whole `data` folder (keeping file paths as shown). **Do not upload the .zip itself**.
-4. Commit to `main`, then Settings → Pages → Deploy from a branch → `main` → `/(root)` → Save.
-5. Visit https://hoithoitcat.github.io/ after the Pages deployment completes.
+## Update GitHub Pages
 
-## Editing
-- `index.html` — page structure, navigation, contact links and profile photo placeholder.
-- `styles.css` — colors, layout, type sizes, light/dark modes.
-- `data/about.js` — biography, interests, education.
-- `data/publications.js` — publication metadata.
-- `data/activities.js` — internship and projects.
-- `app.js` — page rendering and interactions.
+1. Open your repository at https://github.com/hoithoitcat/hoithoitcat.github.io.
+2. Upload **`index.html`, `styles.css`, and `README.md`** from this package to the repository **root**; overwrite the existing files with the same names.
+3. Commit changes to `main`. The existing `app.js` and `data/` files from an earlier version are no longer used by this website, because all visible content is now written into `index.html`; you may safely remove those outdated files from this repo after checking they aren't needed elsewhere.
+4. Ensure GitHub Pages is configured to deploy the `main` branch at `/(root)`.
+5. Open https://hoithoitcat.github.io/ and hard refresh with Ctrl+Shift+R if the older design is cached.
 
-## Fonts
-The site requests the open-licensed **Google Sans** webfont through Google Fonts, with Helvetica/Arial as fallbacks. The professor's website specifically names **GoogleSansFlex_24pt-Regular.ttf** and **GoogleSansFlex_24pt-Light.ttf**, which are not bundled here. The CSS is prepared to use exactly those filenames if you place lawfully sourced copies in a new `fonts/` folder. If you do not, the site still works with the Google Fonts version of Google Sans. No font files are included in this package.
+## What has been fixed
 
-## Before sharing publicly
-- Replace `GL` with your own portrait (or keep the initials).
-- Confirm the exact publication title, author list, venue and paper link.
-- Decide whether you want to publish the internship and independent project details.
-- Add email/CV only if you wish to make them public.
+- Publication details verified from the original May 2024 article, with live PDF / DOI / KCI links and a BibTeX button.
+- About, Publications, Activities, and Contact have actual HTML content, so they **do not depend on ES module data imports**.
+- Light/dark switching is wired into a small inline script. It works even when the previous `app.js` module fails or is absent; the theme is remembered in localStorage.
+- The `Google Sans Flex` family is fetched via Google's CSS service. No font binaries are bundled or redistributed.
+
+## Personal information / next steps
+
+- The `GL` portrait is a placeholder. To replace it, upload your own photo to `assets/profile.jpg` and replace the placeholder `<div class="profile-photo profile-placeholder">` with `<img class="profile-photo" src="assets/profile.jpg" alt="Portrait of Gang Hun Lee">`.
+- Email, Google Scholar profile, and CV links were not guessed or exposed because no confirmed public URLs or publication preference were provided.
+- The KAIST SIML internship is marked **incoming** because it has not begun yet as of November 2026.
+- The independently studied mathematical research is explicitly marked ongoing, not an established proof or a publication.
+- A `BibTeX` button copies a verified bibliographic entry (browser clipboard permission required; otherwise a copy dialog appears).
+
+## Sources for public publication metadata
+
+- https://www.accesson.kr/pam/assets/pdf/42656/journal-31-2-189.pdf
+- https://doi.org/10.7468/jksmeb.2024.31.2.189
+- https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003081808

@@ -1,23 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Personal academic website of Ganghun Lee, an undergraduate student at KAIST.">
-  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Ganghun Lee — undergraduate at KAIST. Mathematics, Bayesian inference, and machine learning.">
+  <meta name="theme-color" content="#fafaf8">
   <title>Ganghun Lee | KAIST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script>
-    try {
-      const saved = localStorage.getItem('academic-theme');
-      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
-    } catch (_) {}
+    /* This runs before paint; content does not depend on JS. */
+    (function () {
+      try {
+        var theme = localStorage.getItem('ganghun-theme');
+        if (theme === 'light' || theme === 'dark')
+          document.documentElement.setAttribute('data-theme', theme);
+      } catch (_) {}
+    }());
   </script>
 </head>
 <body>
@@ -29,45 +30,178 @@
         <p class="header-links">
           <a href="https://github.com/hoithoitcat" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span class="dot">·</span>
+          <a href="https://www.accesson.kr/pam/assets/pdf/42656/journal-31-2-189.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+          <span class="dot">·</span>
           <a href="#contact">Contact</a>
         </p>
       </div>
-      <!-- Replace the placeholder with <img class="profile-photo" src="assets/profile.jpg" alt="Portrait of Ganghun Lee"> -->
-      <div class="profile-photo placeholder" role="img" aria-label="Profile photograph placeholder">GL</div>
+      <!-- Optional: replace this entire div with <img class="profile-photo" src="assets/profile.jpg" alt="Portrait of Gang Hun Lee"> -->
+      <div class="profile-photo profile-placeholder" role="img" aria-label="Profile picture placeholder">GL</div>
     </div>
-    <nav aria-label="Primary navigation">
+    <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#publications">Publications</a>
       <a href="#activities">Activities</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">☾</button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾</button>
     </nav>
   </header>
 
   <main class="container">
-    <section id="about" class="panel" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <div id="about-content"></div>
+    <section class="panel" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <h3>Brief Bio</h3>
+      <p>I am an undergraduate student at <a href="https://www.kaist.ac.kr/site/en/" target="_blank" rel="noopener noreferrer">KAIST</a>, with interests in mathematics, statistics, and machine learning. I graduated from the <a href="https://ksa.hs.kr/Eng" target="_blank" rel="noopener noreferrer">Korea Science Academy of KAIST</a>.</p>
+      <p>My academic interests center on understanding machine learning from mathematical and statistical perspectives, especially Bayesian inference and uncertainty quantification. I will join the <a href="https://siml.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">Statistical Inference and Machine Learning (SIML) Lab</a> as a winter research intern after the Fall 2026 semester.</p>
+      <h3>Research Interests</h3>
+      <ul>
+        <li>Bayesian inference and probabilistic machine learning</li>
+        <li>Uncertainty quantification in machine learning</li>
+        <li>Mathematical foundations of machine learning</li>
+        <li>Statistical learning and sequential inference</li>
+      </ul>
+      <h3>Education</h3>
+      <ul>
+        <li><a href="https://www.kaist.ac.kr/site/en/" target="_blank" rel="noopener noreferrer">KAIST</a>, Undergraduate Student (2025–present)</li>
+        <li><a href="https://ksa.hs.kr/Eng" target="_blank" rel="noopener noreferrer">Korea Science Academy of KAIST</a>, High School</li>
+      </ul>
     </section>
-    <section id="publications" class="panel" aria-labelledby="publications-title">
+
+    <section class="panel" id="publications" aria-labelledby="pub-heading">
       <div class="section-head">
-        <h2 id="publications-title">Publications</h2>
-        <p id="publication-count" class="section-note"></p>
+        <h2 id="pub-heading">Publications</h2>
+        <p class="section-note">1 journal paper</p>
       </div>
-      <div id="publication-sections" class="publication-sections"></div>
+      <div class="publication-sections">
+        <div class="publication-group">
+          <h3>Journal Papers</h3>
+          <div class="publication-year-group">
+            <div class="publication-year">2024</div>
+            <ol class="publication-list">
+              <li class="publication-item">
+                <p class="pub-title">On Evaluations of the Cubic Continued Fraction by Modular Equations of Degree 3 Revisited</p>
+                <p class="pub-authors">Jinhee Yi, Ji Won Ahn, <strong>Gang Hun Lee</strong>, Dae Hyun Paek</p>
+                <p class="pub-meta"><em>Journal of the Korean Society of Mathematical Education Series B: Theoretical Mathematics and Pedagogical Mathematics</em>, 31(2), 189–200, 2024.</p>
+                <div class="pub-links">
+                  <a href="https://www.accesson.kr/pam/assets/pdf/42656/journal-31-2-189.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                  <a href="https://doi.org/10.7468/jksmeb.2024.31.2.189" target="_blank" rel="noopener noreferrer">DOI</a>
+                  <a href="https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003081808" target="_blank" rel="noopener noreferrer">Paper</a>
+                  <button type="button" id="bibtex-button" class="text-button" aria-label="Copy BibTeX citation">BibTeX</button>
+                  <span id="bibtex-status" class="sr-only" role="status" aria-live="polite"></span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="activities" class="panel" aria-labelledby="activities-title">
-      <h2 id="activities-title">Research and Activities</h2>
-      <div id="activities-content"></div>
+
+    <section class="panel" id="activities" aria-labelledby="activities-heading">
+      <h2 id="activities-heading">Research and Activities</h2>
+      <div class="activity-block">
+        <h3>Research Experience</h3>
+        <div class="activity-item">
+          <span class="activity-date">Winter 2026</span>
+          <div>
+            <p class="activity-title">Incoming Research Intern — <a href="https://siml.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">SIML Lab, KAIST</a></p>
+            <p class="activity-desc">Selected for the winter internship; research topic to be determined.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <span class="activity-date">2024</span>
+          <div>
+            <p class="activity-title">Mathematics research — Ramanujan's cubic continued fraction</p>
+            <p class="activity-desc">Co-authored a <a href="https://doi.org/10.7468/jksmeb.2024.31.2.189" target="_blank" rel="noopener noreferrer">peer-reviewed journal article</a> on modular equations and theta-function identities.</p>
+          </div>
+        </div>
+      </div>
+      <div class="activity-block">
+        <h3>Selected Projects</h3>
+        <div class="activity-item">
+          <span class="activity-date">Ongoing</span>
+          <div>
+            <p class="activity-title">Independent mathematical research</p>
+            <p class="activity-desc">Exploratory work on problems in number theory and discrete dynamical systems. Work in progress; no claim of resolving an open problem.</p>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="contact" class="panel" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
+
+    <section class="panel" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
       <p>GitHub: <a href="https://github.com/hoithoitcat" target="_blank" rel="noopener noreferrer">github.com/hoithoitcat</a></p>
-      <!-- Add an email and CV link here only when you want them published. -->
     </section>
   </main>
+
   <footer class="container site-footer"><p>© <span id="year">2026</span> Ganghun Lee</p></footer>
-  <button class="to-top-button" id="to-top-button" type="button" aria-label="Back to top">↑</button>
-  <script type="module" src="app.js"></script>
+  <button id="to-top-button" class="to-top-button" type="button" aria-label="Back to top">↑</button>
+  <script>
+    (function () {
+      'use strict';
+      var root = document.documentElement;
+      var toggle = document.getElementById('theme-toggle');
+      var systemDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      function dark() {
+        var explicit = root.getAttribute('data-theme');
+        return explicit ? explicit === 'dark' : !!(systemDark && systemDark.matches);
+      }
+      function updateToggle() {
+        var on = dark();
+        toggle.textContent = on ? '☀' : '☾';
+        toggle.setAttribute('aria-label', on ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+      toggle.addEventListener('click', function () {
+        var next = dark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('ganghun-theme', next); } catch (_) {}
+        updateToggle();
+      });
+      if (systemDark) {
+        if (typeof systemDark.addEventListener === 'function')
+          systemDark.addEventListener('change', updateToggle);
+        else if (typeof systemDark.addListener === 'function')
+          systemDark.addListener(updateToggle);
+      }
+      updateToggle();
+
+      var goTop = document.getElementById('to-top-button');
+      function updateGoTop() {
+        goTop.classList.toggle('visible', window.scrollY > 250);
+      }
+      window.addEventListener('scroll', updateGoTop, { passive: true });
+      goTop.addEventListener('click', function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+      updateGoTop();
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      var bibtex = '@article{yi2024cubic,\n'
+        + '  author = {Yi, Jinhee and Ahn, Ji Won and Lee, Gang Hun and Paek, Dae Hyun},\n'
+        + '  title = {On Evaluations of the Cubic Continued Fraction by Modular Equations of Degree 3 Revisited},\n'
+        + '  journal = {Theoretical Mathematics and Pedagogical Mathematics},\n'
+        + '  volume = {31},\n'
+        + '  number = {2},\n'
+        + '  pages = {189--200},\n'
+        + '  year = {2024},\n'
+        + '  doi = {10.7468/jksmeb.2024.31.2.189}\n'
+        + '}';
+      var bibButton = document.getElementById('bibtex-button');
+      var status = document.getElementById('bibtex-status');
+      bibButton.addEventListener('click', function () {
+        function copied() {
+          status.textContent = 'BibTeX citation copied.';
+          bibButton.textContent = 'Copied!';
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(bibtex).then(copied).catch(function () {
+            window.prompt('Copy BibTeX citation:', bibtex);
+          });
+        } else {
+          window.prompt('Copy BibTeX citation:', bibtex);
+        }
+      });
+    }());
+  </script>
 </body>
 </html>
