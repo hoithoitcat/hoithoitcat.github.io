@@ -131,3 +131,86 @@ h3 { font-size: 1rem; font-weight: 600; }
   html { scroll-behavior: auto; }
   .to-top-button { transition: none; }
 }
+
+/* Typography and layout alignment */
+
+:root {
+  --bg: #fafaf8;
+  --fg: #111111;
+  --muted: #666666;
+  --line: #e8e8e8;
+  --link: #1d3d6b;
+}
+
+body {
+  font-family: "Google Sans Flex", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.container {
+  width: min(860px, 92vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 48px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.header-links {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.profile-photo {
+  width: 136px;
+  height: 136px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+nav {
+  margin-top: 18px;
+  padding: 0;
+  gap: 14px;
+  border: 0;
+}
+
+main {
+  padding: 24px 0 48px;
+}
+
+.panel + .panel,
+main > section + section {
+  margin-top: 64px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--fg);
+  width: fit-content;
+}
